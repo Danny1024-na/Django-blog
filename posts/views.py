@@ -10,8 +10,10 @@ def postList(request):
     return render(request,'posts.html',{'data':all})
 
 def postDetails(request,id):
-    post =Post.objects.get(id=id)
-    return render(request,'singel.html',{'onePost':post})
+    'the first id belongs to objects from posts, the secound is the inhereted id from above'
+    post =Post.objects.get(id=id) 
+    'send the post in the name of onePost (we can use it in the file singel.html)'
+    return render(request,'singel.html',{'onePost':post}) 
 
 def createPost(request):
     '''
