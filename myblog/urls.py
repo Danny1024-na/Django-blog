@@ -18,12 +18,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include
-from posts.views import postList,postDetails,createPost,editPost,deletePost
+from posts.views import postList,postDetails,createPost,editPost,deletePost,posts2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('blog/',postList),
+     path('blog/cbv',posts2.as_view()),
     path('blog/<int:id>',postDetails),
     path('blog/create',createPost),
     path('blog/<int:id>/edit',editPost),

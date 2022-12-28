@@ -13,3 +13,8 @@ class PostAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     search_fields =['title','content']
 
 admin.site.register(Post,PostAdmin)
+
+
+'to change the title of the page'
+'we can also edit the thems of the admain page , simply search in google'
+admin.site.site_header = 'My Blog (Danny21)'

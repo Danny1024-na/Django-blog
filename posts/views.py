@@ -3,6 +3,8 @@ from .models import Post
 from .forms import PostForm
 
 # Create your views here.
+
+#function based views
 def postList(request):
     all = Post.objects.all()
     return render(request,'posts.html',{'data':all})
@@ -10,7 +12,6 @@ def postList(request):
 def postDetails(request,id):
     post =Post.objects.get(id=id)
     return render(request,'singel.html',{'onePost':post})
-
 
 def createPost(request):
     '''
@@ -32,7 +33,6 @@ def createPost(request):
         print('in Get')
     return render(request,'createPost.html',{'form':form})
 
-
 def editPost(request,id):
     post =Post.objects.get(id=id)
     if request.method =='POST':
@@ -51,9 +51,16 @@ def editPost(request,id):
         print('in Get')
     return render(request,'editPost.html',{'form':form})
 
-
 def deletePost(request,id):
+
     post =Post.objects.get(id=id)
     post.delete()
     'to redirect the user to a Page , we have to import redirect!!!!!!!!'
     return redirect ('/blog')
+
+
+from django.views.generic import ListView
+#class based views
+class posts2(ListView):
+    model = Post
+    template_name = 'posts.html'
