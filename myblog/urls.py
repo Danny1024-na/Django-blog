@@ -19,12 +19,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include
 from posts.views import postList,postDetails,createPost,editPost,deletePost,posts2
+#from postcbv.views import postList,PostDetails,postCreate,postEdit,postDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    
+    # path('blog/',postList.as_view()),
+    # path('blog/<int:pk>',PostDetails.as_view()),
+    # path('blog/<int:pk>/edit',postEdit.as_view()),
+    # path('blog/create', postCreate.as_view()),
+    # path('blog/<int:pk>/delete', postDelete.as_view()),
+    #path('blog/cbv',posts2.as_view()),
+
     path('blog/',postList),
-     path('blog/cbv',posts2.as_view()),
     path('blog/<int:id>',postDetails),
     path('blog/create',createPost),
     path('blog/<int:id>/edit',editPost),

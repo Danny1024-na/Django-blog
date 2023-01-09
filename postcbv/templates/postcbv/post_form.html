@@ -1,0 +1,6 @@
+
+<form enctype="multipart/form-data" method="post"> <!--um Media zu behandeln method=post um die Daten unauffällig zu schicken -->
+    {% csrf_token %} <!--ein Hackersloch , muss mit allem form, die post Method haben , hinzugefügt werden-->
+    {{form}}
+    <input type="submit" value="create">
+</form>

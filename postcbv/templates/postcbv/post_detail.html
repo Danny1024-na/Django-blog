@@ -1,0 +1,11 @@
+<a href="/blog/{{object.id}}/edit">edit</a>
+<a href="/blog/{{object.id}}/delete">delete</a>
+<hr>
+<h1>{{object}}</h1>
+
+
+<img src="{{object.image.url}}" alt=""> <!--url to save the url of the photo nit the photo itself-->
+
+<p>
+    {{object.content|safe}} <!-- | : filter , safe : the content is safe ,you can show it-->
+</p>
